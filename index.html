@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>To-Do-List</title>
 </head>
+
 <body>
     <div class="container">
         <div class="form">
             <label for="task" class="label">
                 Enter a Task:
             </label>
-            <input type="text" name="task" id="task" class="input" placeholder="Enter a Task to do">
-            <button class="btn">Add Task</button>
+            <input type="text" name="task" id="input-task" class="input" placeholder="Enter a Task to do">
+            <button class="btn" id="add-task"><i class="fa-solid fa-plus"></i></button>
         </div>
-        
+        <div id="task-container">
+        </div>
     </div>
     <script src="main.js"></script>
 </body>
+
 </html>
+<!-- 
+<div class="task">
+    <li></li>
+    <button class="check-btn"></button>
+    <button class="delete-btn"></button>
+</div> 
+<div class="task">
+    <li></li>
+    <button class="check-btn"></button>
+    <button class="delete-btn"></button>
+</div>
+-->
