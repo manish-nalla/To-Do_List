@@ -21,22 +21,49 @@ addTask.addEventListener('click',function(){
     deleteButton.classList.add('delete-btn')
     task.appendChild(deleteButton);
 
+    let editButton = document.createElement('button');
+    editButton.innerHTML = `<i class="far fa-edit"></i>`;
+    editButton.classList.add('edit-btn');
+    task.appendChild(editButton);
+    
+    tickButton.addEventListener('click',function(){
+        tickButton.parentElement.style.textDecoration = "line-through";
+    });
+
+    deleteButton.addEventListener('click',function(){
+        task.remove();
+    });
+
+    editButton.addEventListener('click',function(){
+        let editInput = document.createElement('input');
+        editInput.type = 'text';
+        editInput.classList.add('edit-input');
+        editInput.value = li.innerText;
+
+        let saveBtn = document.createElement('button');
+        saveBtn.classList.add('save-btn');
+        saveBtn.innerHTML = `<i class="fas fa-save"></i>`;
+
+        task.replaceChild(saveBtn, editButton);
+        task.replaceChild(editInput, li);
+
+        saveBtn.addEventListener('click',function(){
+
+            li.innerText = editInput.value;
+
+            task.replaceChild(li,editInput);
+            task.replaceChild(editButton, saveBtn);
+        })
+    })
+
+    
     if(inputTask.value === ""){
         alert("Please enter a Task");
     } else{
         taskContainer.appendChild(task);
     }
 
-    inputTask.value = "";
-    
-    tickButton.addEventListener('click',function(){
-        tickButton.parentElement.style.textDecoration = "line-through";
-    });
-
-    deleteButton.addEventListener('click',function(e){
-        let target = e.target;
-        target.parentElement.parentElement.remove();
-    });
+    inputTask.value = ""
 
 });
 
